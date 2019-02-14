@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Cart home page{% endblock %}
+{% block stylesheet %} {% endblock %}
+{% block content %}
+<div class="container">
+    <h1 class="text-success text-center">Welcome to Cart home page</h1>
+    <table class="table table-hover table-dark">
+      <thead>
+        <tr>
+          <th scope="col" width="25%">#</th>
+          <th scope="col" width="25%">Product</th>
+          <th scope="col" width="25%">Photo</th>
+          <th scope="col" width="25%">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for product in cart_obj.products.all %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>
+            {% include "update-cart.html" with product=product cart=cart_obj in_cart=True%}
+          </td>
+          <td><img src="{{ product.image.url }}"  alt="Shohag" height="35" width="35" ></td>
+          <td>{{ product.price }}</td>
+        </tr>
+      {% endfor %}
+      <tr>
+        <td colspan="3"></td>
+        <td class="text-danger">
+          Subtotal = {{ cart_obj.subtotal }}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3"></td>
+        <td class="text-danger">
+          Total (With shipping) = {{ cart_obj.total }}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3"></td>
+        <td><a class="btn btn-success" href="{% url 'carts:checkout' %}">Checkout</a></td>
+      </tr>
+      </tbody>
+</table>
+</div>
+
+{% endblock %}
+{% block script %}
+
+{% endblock %}

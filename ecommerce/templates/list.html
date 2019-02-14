@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home page{% endblock %}
+{% block stylesheet %} {% endblock %}
+{% block content %}
+<div class="row">
+    {% for object in object_list %}
+    <div class="card " style="width: 18rem;">
+      <img src="{{ object.image.url }}" class="card-img-top" alt="Shohag" style="height:40%">
+      <div class="card-body mb-0 pb-0">
+        <h5 class="card-title text-danger">{{ object.title }}</h5>
+        <h7 class="text text-info">{{ object.timestamp|timesince }} ago</h7>
+        <p class="card-text">{{ object.description|truncatewords:10 }}</p>
+        <a href="{{ object.get_absolute_url }}" class="btn btn-primary">View</a>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+{% block script %} {% endblock %}

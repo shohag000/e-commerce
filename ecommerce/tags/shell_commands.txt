@@ -1,0 +1,35 @@
+>>> from tags.models import Tag
+>>> Tag.objects.all()
+<QuerySet [<Tag: T-Shirt>, <Tag: pant>, <Tag: black>, <Tag: white>]>
+>>> white= Tag.objects.last()
+>>> white
+<Tag: white>
+>>> white.title
+'white'
+>>> white.slug
+'white'
+>>> white.active
+True
+>>> white.products
+<django.db.models.fields.related_descriptors.create_forward_many_to_many_manager.<locals>.ManyRelatedManager object at 0x0000022CCC3D5390>
+>>> white.products.all()
+<ProductQuerySet [<Product: T-Shirt>, <Product: Pant>]>
+>>> white.products.first()
+<Product: T-Shirt>
+>>> white.products.first().title
+'T-Shirt'
+>>> white.products.first().price
+Decimal('100.00')
+>>> from products.models import Product
+>>> Product.objects.all()
+<ProductQuerySet [<Product: T-Shirt>, <Product: Pant>, <Product: Super Computer>, <Product: Pant>, <Product: Mi Mix 3>]>
+>>> tshirt = Product.objects.first()
+>>> tshirt.title
+'T-Shirt'
+>>> tshirt.tag_set
+<django.db.models.fields.related_descriptors.create_forward_many_to_many_manager.<locals>.ManyRelatedManager object at 0x0000022CCC3EEF98>
+>>> tshirt.tag_set.all()
+<QuerySet [<Tag: T-Shirt>, <Tag: black>, <Tag: white>]>
+>>> tshirt.tag_set.filter(title__iexact='black')
+<QuerySet [<Tag: black>]>
+>>

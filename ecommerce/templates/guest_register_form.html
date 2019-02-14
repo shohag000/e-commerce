@@ -1,0 +1,10 @@
+<form action="{% url 'guest_register' %}" method="POST" class="form">
+        {% csrf_token %}
+  {% if next_url %}
+  <input type="hidden"  name="next" value="{{ next_url }}">
+  {% endif %}
+  <div class="form-group">
+    {{ form }}
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+          integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+
+</head>
+<body>
+
+<h1 class="h">Hello</h1>
+<h1 class="h">Hello</h1>
+<h1 class="h" id="h3">Hello</h1>
+<h1 class="h">Hello</h1>
+<p class="description">
+  one day i was comming from my village it was summer . My sweat is moving output
+</p>
+<p class="description" >
+  It shares land borders with India and Myanmar (Burma).
+  The country's maritime territory in the Bay of Bengal is roughly equal to the size of its land area.[11]
+   Bangladesh is the world's eighth most populous country as well as its most densely-populated,
+   to the exclusion of small island nations and city-states. Dhaka is its capital and largest city,
+    followed by Chittagong, which has the country's largest port.
+</p>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    var $description = $(".description");
+    console.log($description.length);
+    $.each($description,function(index,obj){
+      var item = $(this);
+      console.log(index,item[0].scrollHeight,obj);
+    })
+  })
+</script>
+
+
+<!--
+<script type="text/javascript">
+  var a= 122;
+  var b = "Hey! whats going on";
+  var someArray = [a,123,121,b,"Shohag"];
+  $.each(someArray,function(index,obj){
+    console.log(index,obj);
+    if (obj%2 == 0) {
+      console.log(obj + " is even");
+    }
+    else {
+      console.log(obj + "is odd");
+    }
+  })
+</script>
+-->
+
+<!--
+<script type="text/javascript">
+  $(document).ready(function(){
+    var $decription = $("#description")
+    $decription.css("width","100px")
+    console.log($decription.css("width"));
+    console.log($decription.height());
+
+    setTimeout(function(){
+      $("h1").css("color","purple");
+      $("h1:nth-child(2)").text("Hello shohag");
+      $("#h3").text("Hello shohag");
+      $(".h").css("padding","20px");
+    },3000);
+
+    $("h1").click(function(){
+      $(this).hide();
+      alert("Document hidden")
+    });
+  });
+
+</script>
+-->
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
+</body>
+</html>

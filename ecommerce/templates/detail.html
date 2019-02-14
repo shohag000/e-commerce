@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home page{% endblock %}
+{% block stylesheet %} {% endblock %}
+{% block content %}
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="col-6">
+            {{ object.title }}<br>
+            {{ object.description }}<br>
+            {{ object.price }}
+            {{ object.timestamp }}
+            <br>
+            <img src="{{ object.image.url }}" height="500" width="500" class="rounded">
+        </div>
+        <div class="col-6">
+            {% include "update-cart.html" with product=object cart=cart %}
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}
+{% block script %} {% endblock %}

@@ -1,0 +1,18 @@
+<form class="form" action="{% url 'checkout_address_reuse' %}" method="POST">
+    {% csrf_token %}
+    {% if next_url %}
+    <input type="hidden" name="next" value="{{ next_url }}">
+    {% endif %}
+    {% if address_type %}
+    <input type="hidden" name="address_type" value="{{ address_type }}">
+    {% endif %}
+    {% for test_address in  test_shipping_address %}
+    <div class="form-check">
+      <input id="address_id" class="form-check-input" type="radio" name="address_id" id="exampleRadios1" value="{{ test_address.id }}" checked>
+      <label class="form-check-label" for="address_id">
+        {{ test_address.all }}
+      </label>
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
